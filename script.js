@@ -51,8 +51,16 @@ generateBtn.addEventListener('click', function generatePassword(){
     generatedPassword += usedCharacters.charAt(Math.floor(Math.random() * usedCharacters.length))
   }
   //console.log(generatedPassword)
-
-  document.querySelector("#password").value = generatedPassword;
+  //pass generated state
+  document.querySelector("#password").style.background = "#FF7878";
+  document.querySelector("#password").style.color = "hsl(0, 0%, 100%)";
+  document.querySelector("#password").value = "Password generated!";
+  //display password finally
+  setTimeout(function(){
+    document.querySelector("#password").style.background = "#CEE5D0";
+    document.querySelector("#password").style.color = "hsl(206, 17%, 28%)";
+    document.querySelector("#password").value = generatedPassword;
+  }, 600);
   return generatedPassword
 });
 
