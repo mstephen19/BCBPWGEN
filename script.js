@@ -50,6 +50,7 @@ generateBtn.addEventListener('click', function generatePassword(){
   for(let i = 0; i < charsWanted; i++){
     generatedPassword += usedCharacters.charAt(Math.floor(Math.random() * usedCharacters.length))
   }
+
   //console.log(generatedPassword)
   //pass generated state
   document.querySelector("#password").style.background = "#FF7878";
@@ -57,6 +58,7 @@ generateBtn.addEventListener('click', function generatePassword(){
   document.querySelector("#password").value = "Password generated!";
   //display password finally
   setTimeout(function(){
+    document.querySelector("#title").innerHTML = "Click the password to copy it!";
     document.querySelector("#password").style.background = "#CEE5D0";
     document.querySelector("#password").style.color = "hsl(206, 17%, 28%)";
     document.querySelector("#password").value = generatedPassword;

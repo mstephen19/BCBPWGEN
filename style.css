@@ -27,6 +27,7 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
+  padding-bottom: 0;
   color: hsl(206, 17%, 28%);
 }
 
@@ -47,6 +48,8 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  text-align: center;
 }
 
 .card-header::after {
@@ -129,10 +132,10 @@ button[disabled] {
   border: none;
   display: block;
   width: 100%;
-  padding-top: 35px;
+  padding-top: 45px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 25px;
+  padding-bottom: 45px;
   font-size: 1.3rem;
   text-align: center;
   margin-top: 10px;
