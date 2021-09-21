@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #CEE5D0;
 }
 
 .wrapper {
@@ -31,7 +31,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: #F3F0D7;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -40,6 +40,13 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card-header::after {
@@ -51,7 +58,7 @@ header {
 }
 
 .card-body {
-  min-height: 100px;
+  min-height: 75px;
 }
 
 .card-footer {
@@ -74,10 +81,9 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: #FF7878;
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: 0 5px 0 hsl(206, 17%, 28%);
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -86,6 +92,24 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+/* animation from https://codepen.io/abitdodgy/pen/hmgai*/
+
+.btn:hover {
+  animation: shake 150ms 2 linear;
+}
+
+@keyframes shake {
+  0% {transform: translate(3px, 0);}
+  50% {transform: translate(-3px, 0);}
+  100% {transform: translate(0, 0);}
+}
+
+.btn:active {
+  transform: translate(0, 3px);
+  box-shadow: 0 2px 0 hsl(206, 17%, 28%);
 }
 
 button[disabled] {
@@ -104,18 +128,31 @@ button[disabled] {
   border: none;
   display: block;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 35px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
+  padding-bottom: 25px;
+  font-size: 1.5rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px solid #FF7878;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  font-weight: bold;
+  background: #CEE5D0;
+  color: hsl(206, 17%, 28%);
+}
+
+h3 {
+  position: fixed;
+  left: 60%;
+  top: 25%;
+  padding: 15px;
+  background-color: #E0C097;
+  border-radius: 4px;
+  opacity: 0;
 }
 
 @media (max-width: 690px) {
@@ -124,14 +161,21 @@ button[disabled] {
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
-
   #password {
     font-size: 1rem;
+  }
+  h3 {
+    left: 50vw;
+    top: 50vw;
   }
 }
 
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+  h3 {
+    left: 50vw;
+    top: 50vw;
   }
 }
