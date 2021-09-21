@@ -14,7 +14,15 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #CEE5D0;
+  background: linear-gradient(50deg, #CEE5D0, #e5cece, #d0cee5);
+  background-size: 400vw 400vh;
+  animation: movingBg 20s ease-in-out infinite;
+}
+
+@keyframes movingBg {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 .wrapper {
