@@ -1,44 +1,53 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
+// Working function
 generateBtn.addEventListener('click', function generatePassword(){
-  generatedPassword = '';
-  const usedCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  const lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  const specials = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", ".", "`", "~", "|", "<", ">", "=", "-", "_"];
+  //empty string for pw
+  var generatedPassword = '';
+  //character vars
+  var usedCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  var lowerLetters = 'abcdefghijklmnopqrstuvwxyz'
+  var numbers = '0123456789'
+  var specials = '!@#$%^&*()+-_=~./><'
 
-  //charactercount alert
   let characterCount = prompt("How many characters do you want in your password?", "16");
-  console.log(characterCount);
+  //console.log(characterCount);
   //if charactercount not meet requirements, alert and terminate func
   if (characterCount < 8 || characterCount >= 128) {
     alert("Try again. Type in a value between 8 and 128")
     return
   }
-  //lowercase alert
+  //characterCount to num from string
+  var charsWanted = parseInt(characterCount);
+
   let lowercaseYOrN = confirm("Do you want lowercase characters?");
-  console.log(lowercaseYOrN)
-  //if yes, append lowers to usedcharacters, else don't
+  //console.log(lowercaseYOrN)
+  //if yes, append them to usedcharacters, else don't
   if (lowercaseYOrN) {
-    usedCharacters.push(lowerLetters)
-  }
-  //numbers alert
-  let numbersYOrN = confirm("Do you want lowercase characters?");
-  console.log(numbersYOrN)
+    usedCharacters = usedCharacters.concat(lowerLetters)
+  }  
+  console.log(usedCharacters)
+
+  let numbersYOrN = confirm("Do you want numbers?");
+  //console.log(numbersYOrN)
   if (numbersYOrN) {
-    usedCharacters.push(numbers)
+    usedCharacters = usedCharacters.concat(numbers)
   }
+  console.log(usedCharacters)
   //specials alert
-  let specialsYOrN = confirm("Do you want lowercase characters?");
-  console.log(specialsYOrN)
+  let specialsYOrN = confirm("Do you want special characters?");
+  //console.log(specialsYOrN)
   if (specialsYOrN) {
-    usedCharacters.push(numbers)
+    usedCharacters = usedCharacters.concat(specials)
   }
-
+  console.log(usedCharacters)
+  for(let i = 0; i < charsWanted; i++){
+    generatedPassword += usedCharacters.charAt(Math.floor(Math.random() * usedCharacters.length))
+  }
+  console.log(generatedPassword)
+  return generatedPassword
 });
-
 
 // Write password to the #password input
 function writePassword() {
