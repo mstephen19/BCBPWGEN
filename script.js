@@ -10,7 +10,6 @@ generateBtn.addEventListener('click', function generatePassword(){
   var lowerLetters = 'abcdefghijklmnopqrstuvwxyz'
   var numbers = '0123456789'
   var specials = '!@#$%^&*()+-_=~./><'
-
   let characterCount = prompt("How many characters do you want in your password?", "16");
   //console.log(characterCount);
   //if charactercount not meet requirements, alert and terminate func
@@ -20,7 +19,6 @@ generateBtn.addEventListener('click', function generatePassword(){
   }
   //characterCount to num from string
   var charsWanted = parseInt(characterCount);
-
   let lowercaseYOrN = confirm("Do you want lowercase characters?");
   //console.log(lowercaseYOrN)
   //if yes, append them to usedcharacters, else don't
@@ -28,14 +26,12 @@ generateBtn.addEventListener('click', function generatePassword(){
     usedCharacters = usedCharacters.concat(lowerLetters)
   }  
   console.log(usedCharacters)
-
   let numbersYOrN = confirm("Do you want numbers?");
   //console.log(numbersYOrN)
   if (numbersYOrN) {
     usedCharacters = usedCharacters.concat(numbers)
   }
   console.log(usedCharacters)
-  //specials alert
   let specialsYOrN = confirm("Do you want special characters?");
   //console.log(specialsYOrN)
   if (specialsYOrN) {
@@ -45,10 +41,12 @@ generateBtn.addEventListener('click', function generatePassword(){
   for(let i = 0; i < charsWanted; i++){
     generatedPassword += usedCharacters.charAt(Math.floor(Math.random() * usedCharacters.length))
   }
-  console.log(generatedPassword)
+  //console.log(generatedPassword)
+  document.querySelector("#password").value = generatedPassword;
   return generatedPassword
 });
 
+/* Don't need these
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -60,3 +58,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+*/
